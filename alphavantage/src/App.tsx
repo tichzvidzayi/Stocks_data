@@ -2,18 +2,30 @@ import useApiFetch from "./customhooks/useAPIFetch";
 import "./index.css";
 
 function App() {
-  const apiKey = "RIBXT3XYLI69PC0Q";
-  const apiUrl =
-    `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`;
+  //const apiKey = "RIBXT3XYLI69PC0Q";
+  //const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`;
+
+ const apiKey = process.env.REACT_APP_API_KEY;
+ const apiUrl = process.env.REACT_APP_API_URL;
 
   const { data, isLoading, error } = useApiFetch(apiKey, apiUrl);
 
   if (isLoading) {
-    return <div> Loading content...</div>;
+    return (
+      <h2 className="text-center text-3xl text-green-700">
+        {" "}
+        Loading content...
+      </h2>
+    );
   }
 
   if (error) {
-    return <div> Ooops an error occurred. : {error}</div>;
+    return (
+      <h2 className="text-3xl text-red-600 font-bold">
+        {" "}
+        Oops an error occurred, can't fetch API. : {error}
+      </h2>
+    );
   }
 
   const metaData = data?.["Meta Data"];
@@ -21,7 +33,9 @@ function App() {
 
   return (
     <>
-      <h1 className=" text-center text-5xl m-9"> Alpha Vantage : IBM</h1>
+      <h1 className=" text-center text-5xl m-9 font-bold mb-4">
+        Alpha Vantage : IBM
+      </h1>
 
       <div className="grid grid-cols-4 gap-4 bg-purple-300 font-sans text-pretty ">
         <div className="bg-[url('./assets/stocks.png')]"></div>
@@ -29,7 +43,10 @@ function App() {
           <div className="bg-gray-900 text-slate-100 text-wrap text-center ">
             <h2 className="text-lg font-bold mb-2">{metaData["2. Symbol"]}</h2>
             <p>{metaData["1. Information"]}</p>
-            <p>Last Refreshed: {metaData["3. Last Refreshed"]}</p>
+            <p>
+              Last Refreshed: {metaData["3. Last Refreshed"].toString()}
+            </p>{" "}
+            {/*Make date compatible with ReactNode */}
             <p>Interval: {metaData["4. Interval"]}</p>
             <p>Time Zone: {metaData["6. Time Zone"]}</p>
           </div>
