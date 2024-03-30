@@ -4,16 +4,18 @@ import "./index.css";
 function App() {
   const apiKey = "RIBXT3XYLI69PC0Q";
   const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`;
-  
- //const apiKey = process.env.REACT_APP_API_KEY;
- //const apiUrl = process.env.REACT_APP_API_URL;
+
+  /* 
+     Pulls apiKey and apiURL from .env file 
+      const apiKey = process.env.REACT_APP_API_KEY;
+      const apiUrl = process.env.REACT_APP_API_URL;
+  */
 
   const { data, isLoading, error } = useApiFetch(apiKey, apiUrl);
 
   if (isLoading) {
     return (
       <h2 className="text-center text-3xl text-green-700">
-        {" "}
         Loading content...
       </h2>
     );
