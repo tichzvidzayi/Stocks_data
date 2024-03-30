@@ -1,4 +1,4 @@
-import useApiFetch from "./customhooks/useFetchAPI";
+import useApiFetch from "./customhooks/useAPIFetch";
 import "./index.css";
 
 function App() {
