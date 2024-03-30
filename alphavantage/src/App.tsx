@@ -29,9 +29,9 @@ const  timeSeries = data?.['Time Series (5min)'];
 
   return (
   
-    <div className="grid grid-cols-2 gap-4 bg-blue-600 ">
+    <div className="grid grid-cols-4 gap-4 bg-yellow-400 ">
       {metaData && (
-        <div className='bg-blue-500 '>
+        <div className='bg-gray-700 text-slate-100 text-pretty text-center '>
           <h2 className="text-lg font-bold mb-2">{metaData['2. Symbol']}</h2>
           <p>{metaData['1. Information']}</p>
           <p>Last Refreshed: {metaData['3. Last Refreshed']}</p>
