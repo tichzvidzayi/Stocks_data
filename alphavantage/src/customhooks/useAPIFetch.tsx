@@ -33,6 +33,7 @@ const useApiFetch = (
     setError(null);
     try {
       if (!apiKey || !apiUrl) {
+        console.log("invalid API key or url");
         throw new Error("API_key Or API_URL is missing, please correct this");
       }
 
