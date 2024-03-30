@@ -8,8 +8,7 @@ const apiUrl = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&
 
 const {data, isLoading, error} = useApiFetch(apiKey, apiUrl);
 
-const response = JSON.stringify(data, null, 2);
-console.log("Hey.. => " + response);
+//const response = JSON.stringify(data, null, 2);
 
 if (isLoading)
 {
