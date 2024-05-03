@@ -1,4 +1,4 @@
-# alpha_vantage
+# Stocks web-app
 A React, TypeScript and TailwindCSS Web application to display AlphaVantage API's data
 
 The Web app uses a customhook (useAPIFetch) that includes a useState, useCallBack and useEffect hooks
